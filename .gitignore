@@ -1,0 +1,9 @@
+.ipynb_checkpoints/
+test.py
+*.png
+*.jpg
+*.pyc
+*.bmp
+*.npy
+*.ipynb
+
