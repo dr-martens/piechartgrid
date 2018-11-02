@@ -45,8 +45,8 @@ piekwargs = {'radius' :1, 'autopct' : "%.1f%%", 'pctdistance' : 0.6, 'shadow':Fa
 			'wedgeprops' : {'linewidth': 0},
 			'textprops' : {'color':"white"}
 		}
-
 legendkwargs = {'frameon':False, 'ncol':1,'labelspacing':0.2} 
+
 fig, axout, leg = piechartgrid(x='x',y='y', data=df, legendposition='left',subfigsize=(1,1), dpi=100,
 				**{'pieargs':piekwargs,'legendargs':legendkwargs})
 ```
@@ -77,7 +77,8 @@ piekwargs = {'radius' :1.1, 'autopct' : "%.0f%%", 'pctdistance' : 0.7, 'shadow':
 			'textprops' : {'color':"white"}
 		}
 legendkwargs = {'frameon':False, 'ncol':1,'labelspacing':0.2, 'title':'clarity'} 
-fig, axout = piechartgrid(x='cat. carat',y='cat. price', data=df,subfigsize=(2,2), dpi=200,
+
+fig, axout, leg = piechartgrid(x='cat. carat',y='cat. price', data=df,subfigsize=(2,2), dpi=200,
 				**{'pieargs':piekwargs,'legendargs':legendkwargs})
 
 import os
