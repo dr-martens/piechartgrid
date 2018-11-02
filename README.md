@@ -1,4 +1,4 @@
-﻿﻿# What is piechartgrid?
+﻿# What is piechartgrid?
 
 Piechartgrid is a python module to display the dependence of classes on specific features. The latter can be either numeric or categorial. Piechartgrid bases on the pie module from matplotlib. Any commands controlling for the appearence of the pies as well as the legend design can be passed directly. Additionally, per default all texts and values are shown in Latex style.
 
@@ -51,15 +51,17 @@ fig, axout, leg = piechartgrid(x='x',y='y', data=df, legendposition='left',subfi
 				**{'pieargs':piekwargs,'legendargs':legendkwargs})
 ```
 
+![Example1](https://github.com/smartens83/piechartgrid/examples/random_example.png')
+
 ### Example 2
 
-Distribution of diamond clarity as a function of price and weight (carat)
+Distribution of diamond cuts as a function of price and weight (carat)
 
 Data set is taken from: https://www.kaggle.com/shivam2503/diamonds
 ```
 data = pd.read_csv('./diamonds.csv')
 
-castep = 0.5
+castep = 1
 prstep = 3000.
 data['carat']=np.floor(data['carat']/castep)
 data['price']=np.floor(data['price']/prstep)
@@ -69,20 +71,23 @@ prlist = ['{:5.0f} - {:5.0f}'.format(i*prstep,(i+1)*prstep-1) for i in np.arange
 
 x=np.array([crlist[i] for i in data['carat'].astype(int)])
 y=np.array([prlist[i] for i in data['price'].astype(int)])
-df = pd.DataFrame(data={'cat. carat':x,'cat. price':y,'clarity':data['clarity']})
-df = pd.get_dummies(df,columns=['clarity'],prefix='',prefix_sep='')
+df = pd.DataFrame(data={'cat. carat':x,'cat. price':y,'cut':data['cut']})
+df = pd.get_dummies(df,columns=['cut'],prefix='',prefix_sep='')
 
-piekwargs = {'radius' :1.1, 'autopct' : "%.0f%%", 'pctdistance' : 0.7, 'shadow':True,
+piekwargs = {'radius' :1, 'autopct' : "%.0f%%", 'pctdistance' : 0.65, 'shadow':True, 'explode':[0,0,0,0.1,0.1],
 			'wedgeprops' : {'linewidth': 0},
 			'textprops' : {'color':"white"}
-		}
-legendkwargs = {'frameon':False, 'ncol':1,'labelspacing':0.2, 'title':'clarity'} 
-fig, axout = piechartgrid(x='cat. carat',y='cat. price', data=df,subfigsize=(2,2), dpi=200,
-				**{'pieargs':piekwargs,'legendargs':legendkwargs})
+		  }
+legendkwargs = {'frameon':False, 'ncol':1,'labelspacing':0.2, 'title':'cut'} 
+
+fig, axout, leg = piechartgrid(x='cat. carat',y='cat. price', data=df,subfigsize=(2,2), dpi=200,
+				   **{'pieargs':piekwargs,'legendargs':legendkwargs})
 
 import os
 fig.savefig(os.path.join('.','diamond_clarity.png'), dpi = 200, bbox_inches="tight")
 ``` 
+![Example2](https://github.com/smartens83/piechartgrid/examples/diamond_cut.png')
+
 
 For example, the labels can be changed afterwards using
 ```
