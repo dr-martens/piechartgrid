@@ -1,4 +1,4 @@
-﻿# What is piechartgrid?
+﻿﻿# What is piechartgrid?
 
 Piechartgrid is a python module to display the dependence of classes on specific features. The latter can be either numeric or categorial. Piechartgrid bases on the pie module from matplotlib. Any commands controlling for the appearence of the pies as well as the legend design can be passed directly. Additionally, per default all texts and values are shown in Latex style.
 
