@@ -51,7 +51,7 @@ fig, axout, leg = piechartgrid(x='x',y='y', data=df, legendposition='left',subfi
 				**{'pieargs':piekwargs,'legendargs':legendkwargs})
 ```
 
-![random example](https://github.com/smartens83/piechartgrid/tree/master/examples/random_example.png)
+![](/examples/random_example.png)
 
 ### Example 2
 
@@ -86,7 +86,7 @@ fig, axout, leg = piechartgrid(x='cat. carat',y='cat. price', data=df,subfigsize
 import os
 fig.savefig(os.path.join('.','diamond_clarity.png'), dpi = 200, bbox_inches="tight")
 ``` 
-![diamond cut](https://github.com/smartens83/piechartgrid/tree/master/examples/diamond_cut.png)
+![](/examples/diamond_cut.png)
 
 
 For example, the labels can be changed afterwards using
